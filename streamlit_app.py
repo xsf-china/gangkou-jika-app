@@ -1092,7 +1092,7 @@ def page_header() -> None:
     st.title(f"{SOFTWARE_NAME} {VERSION}")
     st.caption("面向港区集卡进出港预约管理、闸口排队预测、拥堵预警和通行效率评价的网页分析软件")
 
-  def check_params(params: Dict[str, object]) -> List[str]:
+def check_params(params: Dict[str, object]) -> List[str]:
         tips = []
 
         if int(params["end_hour"]) <= int(params["start_hour"]):
@@ -1127,12 +1127,14 @@ def scenario_select_panel() -> Dict[str, object]:
         value=scenario.total_vehicles,
         step=50,
     )
+
     gate_num = st.sidebar.number_input(
         "闸口数量/个",
         min_value=1,
         max_value=20,
         value=scenario.gate_num,
     )
+
     service_time = st.sidebar.number_input(
         "单车平均服务时间/分钟",
         min_value=0.5,
