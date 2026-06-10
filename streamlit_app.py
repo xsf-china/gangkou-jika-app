@@ -1092,9 +1092,7 @@ def page_header() -> None:
     st.title(f"{SOFTWARE_NAME} {VERSION}")
     st.caption("面向港区集卡进出港预约管理、闸口排队预测、拥堵预警和通行效率评价的网页分析软件")
 
-
-def scenario_select_panel() -> Dict[str, object]:
-    def check_params(params: Dict[str, object]) -> List[str]:
+  def check_params(params: Dict[str, object]) -> List[str]:
         tips = []
 
         if int(params["end_hour"]) <= int(params["start_hour"]):
@@ -1110,6 +1108,8 @@ def scenario_select_panel() -> Dict[str, object]:
             tips.append("故障开始时段不能晚于故障结束时段。")
 
         return tips
+
+def scenario_select_panel() -> Dict[str, object]:
     st.sidebar.header("一、场景选择")
     scenario_name = st.sidebar.selectbox("选择港区运行场景", list(SCENARIOS.keys()))
     scenario = SCENARIOS[scenario_name]
